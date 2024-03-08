@@ -27,8 +27,8 @@
                     <p>Los Angeles, CA</p>
                 </div>
             </div>
-            <div class="hidden sm:mt-10 sm:flex lg:mt-0 lg:grow lg:basis-0 lg:justify-end">
-                <button href="#">Get your tickets</button>
+            <div className="hidden sm:mt-10 sm:flex lg:mt-0 lg:grow lg:basis-0 lg:justify-end">
+                <Button href="#">Get your tickets</Button>
             </div>
         </Container>
     </header>
