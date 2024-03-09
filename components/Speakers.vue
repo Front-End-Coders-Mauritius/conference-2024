@@ -1,5 +1,5 @@
 <template>
-    <section id="speakers" :aria-labelledby="'speakers-title'" class="py-20 sm:py-32">
+    <section :aria-labelledby="'speakers-title'" class="py-20 sm:py-32">
         <svg aria-hidden="true" width="0" height="0">
             <defs>
                 <clipPath v-for="index in [0, 1, 2]" :key="index" :id="`${id}-${index}`" clipPathUnits="objectBoundingBox">
@@ -20,8 +20,7 @@
         </svg>
         <Container>
             <div class="mx-auto max-w-2xl lg:mx-0">
-                <h2 :id="'speakers-title'"
-                    class="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl">
+                <h2 class="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl">
                     Speakers
                 </h2>
                 <p class="mt-4 font-display text-2xl tracking-tight text-blue-900">
