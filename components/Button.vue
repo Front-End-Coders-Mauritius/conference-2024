@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { defineProps, computed } from 'vue';
+import { computed } from 'vue';
 import clsx from 'clsx';
 
 const props = defineProps(['className', 'href']);

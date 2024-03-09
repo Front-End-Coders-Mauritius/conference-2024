@@ -2,7 +2,7 @@
     <section :aria-labelledby="'speakers-title'" class="py-20 sm:py-32">
         <svg aria-hidden="true" width="0" height="0">
             <defs>
-                <clipPath v-for="index in [0, 1, 2]" :key="index" :id="`${id}-${index}`" clipPathUnits="objectBoundingBox">
+                <clipPath v-for="index in [0, 1, 2]" :key="index" clipPathUnits="objectBoundingBox">
                     <template v-if="index === 0">
                         <path
                             d="M0,0 h0.729 v0.129 h0.121 l-0.016,0.032 C0.815,0.198,0.843,0.243,0.885,0.243 H1 v0.757 H0.271 v-0.086 l-0.121,0.057 v-0.214 c0,-0.032,-0.026,-0.057,-0.057,-0.057 H0 V0" />

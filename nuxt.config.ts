@@ -2,14 +2,18 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
+
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
   },
+
   typescript: {
     strict: true,
     // typeCheck: true
-  }
+  },
+
+  modules: ["@nuxt/image"]
 })
