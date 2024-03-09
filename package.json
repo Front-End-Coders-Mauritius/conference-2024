@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.7.19",
     "clsx": "^2.1.0",
     "nuxt": "^3.10.3",
     "typescript": "^5.3.3",
