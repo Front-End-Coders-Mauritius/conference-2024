@@ -1,6 +1,10 @@
 <template>
   <div>
     <Header />
-    <NuxtWelcome />
+    <Hero />
+    <Speakers />
+    <Schedule />
+    <Sponsors />
+    <Footer />
   </div>
 </template>
