@@ -4,17 +4,14 @@
         <Container class="relative">
             <div class="mx-auto max-w-2xl lg:max-w-4xl lg:px-12">
                 <h1 class="font-display text-5xl font-bold tracking-tighter text-blue-600 sm:text-7xl">
-                    <span class="sr-only">DeceptiConf - </span>A design conference for the dark side.
+                    <span class="sr-only">frontend & friends - </span>frontend & friends conference
                 </h1>
                 <div class="mt-6 space-y-6 font-display text-2xl tracking-tight text-blue-900">
                     <p>
-                        The next generation of web users are tech-savvy and suspicious. They know how to use dev tools, they
-                        can detect a phishing scam from a mile away, and they certainly aren’t accepting any checks from
-                        Western Union.
+                        After more than 50 succesful meetups organized in Mauritius, we are proud to announce the first ever frontend & friends conference.
                     </p>
                     <p>
-                        At DeceptiConf you’ll learn about the latest dark patterns being developed to trick even the
-                        smartest visitors, and you’ll learn how to deploy them without ever being detected.
+                        A two day event where you can learn from the best in the industry, meet other frontend developers and make new connections.
                     </p>
                 </div>
                 <Button href="#" class="mt-10 w-full sm:hidden">
@@ -36,10 +33,10 @@
 
 const props = defineProps();
 const data = [
-    ['Speakers', '18'],
-    ['People Attending', '2,091'],
-    ['Venue', 'Staples Center'],
-    ['Location', 'Los Angeles'],
+    ['Speakers', '24'],
+    ['People Attending', '300'],
+    ['Venue', 'Middlesex University'],
+    ['Location', 'Flic-en-Flac, Mauritius'],
 ];
 </script>
 
