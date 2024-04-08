@@ -15,12 +15,15 @@ const buttonProps = props.href ? { to: props.href } : {};
 
 const computedClasses = computed(() =>
   clsx(
-    "inline-flex justify-center rounded-2xl bg-blue-600 p-4 text-base font-semibold text-white hover:bg-blue-500 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:text-white/70",
+    "button",
     props.className
   )
 );
 </script>
 
-<style scoped>
+<style lang="postcss">
+.button {
+  @apply inline-flex justify-center rounded-2xl bg-blue-600 p-4 text-base font-semibold text-white hover:bg-blue-500 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:text-white/70
+}
 /* Add any scoped styles if needed */
 </style>

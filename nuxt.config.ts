@@ -1,10 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
 
   postcss: {
     plugins: {
+      'tailwindcss/nesting': {},
       tailwindcss: {},
       autoprefixer: {},
     },
@@ -15,5 +17,17 @@ export default defineNuxtConfig({
     // typeCheck: true
   },
 
-  modules: ["@nuxt/image"]
+  modules: ["@nuxt/image"],
+
+  app: {
+     head: {
+      link: [
+        {
+          rel: "icon",
+          type: "image/svg+xml",
+          href: "/favicon.svg",
+        },
+      ],
+     }
+  }
 })
