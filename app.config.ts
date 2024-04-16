@@ -1,7 +1,8 @@
 export default defineAppConfig({
-    title: "Frontend & Friends Conference",
-    description:  "Frontend & Friends is a conference organized by frontend.mu in Mauritius around modern web development.",
+    title: "The Web Conference",
+    description:  "The Web Conference is a conference organized by frontend.mu in Mauritius around modern web development.",
     domain: "frontend.mu",
+    // MARK: Test
     statistics: {
         speakers : "24",
         'people attending' : "300",

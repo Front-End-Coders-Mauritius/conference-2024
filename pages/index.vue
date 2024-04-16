@@ -3,7 +3,7 @@
   <div  class="relative z-10">
     <Header />
     <Hero />
-    <!-- <HomeStatistics /> -->
+    <HomeStatistics />
     <Sponsors />
     <Footer />
   </div>

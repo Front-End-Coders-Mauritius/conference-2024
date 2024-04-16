@@ -3,7 +3,7 @@
     <Container class="relative z-10">
       <div class="mx-auto max-w-2xl lg:max-w-4xl lg:px-12">
         <h1
-          class="font-display text-5xl font-bold tracking-tighter text-blue-600 sm:text-7xl lowercase"
+          class="font-display text-5xl font-bold tracking-tighter text-blue-600 sm:text-7xl"
         >
           <span class="sr-only">frontend & friends - </span> {{  appConfig.title }}
         </h1>

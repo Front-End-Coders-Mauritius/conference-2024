@@ -3,7 +3,7 @@
         <Container class="flex flex-col items-center justify-between md:flex-row">
             <Logo class="h-12 w-auto text-blue-600" />
             <p class="mt-6 text-base text-blue-500 md:mt-0">
-                {{ currentYear }} frontend.mu
+                {{ currentYear }} | Organized by frontend.mu
             </p>
         </Container>
     </footer>
