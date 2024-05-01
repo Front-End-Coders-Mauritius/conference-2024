@@ -9,7 +9,7 @@ const appConfig = useAppConfig()
                 <div class="relative">
                     <div class="relative z-10 grid gap-3 grid-cols-6">
                         <div
-                            class="col-span-full lg:col-span-2 overflow-hidden flex relative p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-800 dark:bg-gray-900">
+                            class="col-span-full lg:col-span-2 overflow-hidden flex relative p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-800 ">
                             <div class="size-fit m-auto relative">
                                 <div class="relative h-24 w-56 flex items-center">
                                     <svg class="absolute inset-0 size-full text-gray-400 dark:text-gray-600"
@@ -28,7 +28,7 @@ const appConfig = useAppConfig()
                         </div>
 
                         <div
-                            class="col-span-full sm:col-span-3 lg:col-span-2 overflow-hidden relative p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-800 dark:bg-gray-900">
+                            class="col-span-full sm:col-span-3 lg:col-span-2 overflow-hidden relative p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-800 ">
                             <div>
                                 <div
                                     class="relative aspect-square rounded-full size-32 flex border mx-auto dark:bg-white/5 dark:border-white/10 before:absolute before:-inset-2 before:border dark:before:border-white/5 dark:before:bg-white/5 before:rounded-full">
@@ -87,7 +87,7 @@ const appConfig = useAppConfig()
                             </div>
                         </div>
                         <div
-                            class="col-span-full sm:col-span-3 lg:col-span-2 overflow-hidden relative p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-800 dark:bg-gray-900">
+                            class="col-span-full sm:col-span-3 lg:col-span-2 overflow-hidden relative p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-800 ">
                             <div>
                                 <div class="pt-6 lg:px-6">
             
@@ -113,7 +113,7 @@ const appConfig = useAppConfig()
                             </div>
                         </div>
                         <div
-                            class="col-span-full lg:col-span-3 overflow-hidden relative p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-800 dark:bg-gray-900">
+                            class="col-span-full lg:col-span-3 overflow-hidden relative p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-800 ">
                             <div class="grid sm:grid-cols-2">
                                 <div class="flex flex-col justify-between relative z-10 space-y-12 lg:space-y-6">
                                     <div
@@ -171,7 +171,7 @@ const appConfig = useAppConfig()
                             </div>
                         </div>
                         <div
-                            class="col-span-full lg:col-span-3 overflow-hidden relative p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-800 dark:bg-gray-900">
+                            class="col-span-full lg:col-span-3 overflow-hidden relative p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-800 ">
                             <div class="h-full grid sm:grid-cols-2">
                                 <div class="flex flex-col justify-between relative z-10 space-y-12 lg:space-y-6">
                                     <div

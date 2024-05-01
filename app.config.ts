@@ -5,13 +5,14 @@ export default defineAppConfig({
     domain: "frontend.mu",
     // MARK: Test
     statistics: {
-        speakers : "24",
+        speakers : "14",
+        workshops : "4",
         'people attending' : "300",
         venue : "Middlesex University",
         location : "Flic-en-Flac, Mauritius",
     },
     links: {
-        sponsor_us: "mailto:sandeep+frontendmuconf2024@ramgolam.com"
+        sponsor_us: "/sponsorship-proposal"
     }
 
 })
