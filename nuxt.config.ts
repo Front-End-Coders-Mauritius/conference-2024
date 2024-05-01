@@ -16,8 +16,11 @@ export default defineNuxtConfig({
     strict: true,
     // typeCheck: true
   },
+  content: {
+    documentDriven: true
+  },
 
-  modules: ["@nuxt/image"],
+  modules: ["@nuxt/image", "@nuxt/content"],
 
   app: {
      head: {

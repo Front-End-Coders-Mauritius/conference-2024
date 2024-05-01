@@ -4,6 +4,7 @@ declare module 'nuxt/schema' {
         title: string,
         description: string,
         domain: string,
+        conference_dates: string,
         statistics: {
             speakers: string
             'people attending': string

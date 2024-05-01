@@ -11,9 +11,7 @@
       >
         <div class="mx-auto flex items-center gap-4 px-4">
           <p>
-            <time dateTime="2022-04-04">30</time>-<time dateTime="2022-04-06"
-              >31 of August, 2024</time
-            >
+            {{ useAppConfig().conference_dates }}
           </p>
           <DiamondIcon
             className="h-1.5 w-1.5 overflow-visible fill-current stroke-current"
