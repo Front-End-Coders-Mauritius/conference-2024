@@ -122,7 +122,7 @@ Onsite benefit
 - Logo on photo backdrop
 
 
-
+<div class="hidden">
 ## Offers
 
 #### Visibility 
@@ -146,3 +146,4 @@ Onsite benefit
 - Access to all participants
 - Access to candidate contact information based on opt-in (gold)
 - Guarenteed meetup spot for frontend.mu at your company
+</div>
