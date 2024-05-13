@@ -1,7 +1,7 @@
 export default defineAppConfig({
     title: "The Web Conference",
     description:  "The Web Conference is a conference organized by frontend.mu in Mauritius around modern web development.",
-    conference_dates: "6th - 7th of August, 2024",
+    conference_dates: "6th - 7th of September, 2024",
     domain: "frontend.mu",
     // MARK: Test
     statistics: {
