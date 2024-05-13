@@ -9,7 +9,7 @@ const appConfig = useAppConfig()
                 <div class="relative">
                     <div class="relative z-10 grid gap-3 grid-cols-6">
                         <div
-                            class="col-span-full lg:col-span-2 overflow-hidden flex relative p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-800 ">
+                            class="col-span-full lg:col-span-2 overflow-hidden flex items-center relative p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-800 ">
                             <div class="size-fit m-auto relative">
                                 <div class="relative h-24 w-56 flex items-center">
                                     <svg class="absolute inset-0 size-full text-gray-400 dark:text-gray-600"
@@ -79,7 +79,7 @@ const appConfig = useAppConfig()
                                 <div class="mt-6 text-center relative z-10 space-y-2">
                                     <h2
                                         class="text-lg font-medium text-gray-800 transition group-hover:text-purple-950 dark:text-white">
-                                        Attendees
+                                        Seats available
                                         </h2>
                                     <h2 class="mt-6 text-center font-semibold text-gray-950 dark:text-white text-3xl">
                                         {{ appConfig.statistics['people attending'] }}</h2>
