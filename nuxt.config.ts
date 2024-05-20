@@ -2,11 +2,11 @@
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  css: ['~/assets/css/main.css'],
+  css: ["~/assets/css/main.css"],
 
   postcss: {
     plugins: {
-      'tailwindcss/nesting': {},
+      "tailwindcss/nesting": {},
       tailwindcss: {},
       autoprefixer: {},
     },
@@ -17,13 +17,28 @@ export default defineNuxtConfig({
     // typeCheck: true
   },
   content: {
-    documentDriven: true
+    documentDriven: true,
   },
 
-  modules: ["@nuxt/image", "@nuxt/content"],
-
+  modules: [
+    "@nuxt/image",
+    "@nuxt/content",
+    "@nuxtjs/tailwindcss",
+    "shadcn-nuxt",
+  ],
+  shadcn: {
+    /**
+     * Prefix for all the imported component
+     */
+    prefix: "",
+    /**
+     * Directory that the component lives in.
+     * @default "./components/ui"
+     */
+    componentDir: "./components/ui",
+  },
   app: {
-     head: {
+    head: {
       link: [
         {
           rel: "icon",
@@ -31,6 +46,6 @@ export default defineNuxtConfig({
           href: "/favicon.svg",
         },
       ],
-     }
-  }
-})
+    },
+  },
+});
