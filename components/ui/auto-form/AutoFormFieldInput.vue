@@ -1,22 +1,33 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import AutoFormLabel from './AutoFormLabel.vue'
-import { beautifyObjectName } from './utils'
-import type { FieldProps } from './interface'
-import { FormControl, FormDescription, FormField, FormItem, FormMessage } from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
+import { computed } from "vue";
+import AutoFormLabel from "./AutoFormLabel.vue";
+import { beautifyObjectName } from "./utils";
+import type { FieldProps } from "./interface";
+import {
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
-const props = defineProps<FieldProps>()
-const inputComponent = computed(() => props.config?.component === 'textarea' ? Textarea : Input)
+const props = defineProps<FieldProps>();
+const inputComponent = computed(() =>
+  props.config?.component === "textarea" ? Textarea : Input
+);
 </script>
 
 <template>
   <FormField v-slot="slotProps" :name="fieldName">
     <FormItem v-bind="$attrs">
-      <AutoFormLabel v-if="!config?.hideLabel" :required="required">
-        {{ config?.label || beautifyObjectName(label ?? fieldName) }}
-      </AutoFormLabel>
+      <div class="flex justify-between justify-center">
+        <AutoFormLabel v-if="!config?.hideLabel" :required="required">
+          {{ config?.label || beautifyObjectName(label ?? fieldName) }}
+        </AutoFormLabel>
+        <FormMessage />
+      </div>
       <FormControl>
         <slot v-bind="slotProps">
           <component
@@ -30,7 +41,6 @@ const inputComponent = computed(() => props.config?.component === 'textarea' ? T
       <FormDescription v-if="config?.description">
         {{ config.description }}
       </FormDescription>
-      <FormMessage />
     </FormItem>
   </FormField>
 </template>

@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/toast";
 import { AutoForm, AutoFormField } from "@/components/ui/auto-form";
 
+const submitted = ref(false);
+
 enum specializations {
   Frontend = "Frontend",
   Backend = "Backend",
@@ -78,17 +80,15 @@ const schema = z.object({
     .number({
       invalid_type_error: "Phone number must be a number.",
     })
-
     .default(8)
     .optional(),
 
   days: z.enum(["friday", "saturday", "Both days"]),
-  consent: z.boolean().refine((value) => value, {
-    message: "You must accept the terms and conditions.",
-    path: ["acceptTerms"],
-  }),
-
-  sendMeMails: z.boolean().optional(),
+  consent: z.boolean().optional(),
+  // consent: z.boolean().refine((value) => value, {
+  //   message: "You must accept the terms and conditions.",
+  //   path: ["acceptTerms"],
+  // }),
 });
 
 function onSubmit(values: Record<string, any>) {
@@ -100,12 +100,13 @@ function onSubmit(values: Record<string, any>) {
       h("code", { class: "text-white" }, JSON.stringify(values, null, 2))
     ),
   });
+  submitted.value = true;
 }
 </script>
 
 <template>
-  <div>
-    <Container class="py-20 sm:py-32">
+  <div class="py-20 sm:py-32">
+    <Container v-if="true">
       <div class="mx-auto max-w-2xl lg:mx-0">
         <h2
           class="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl"
@@ -141,21 +142,16 @@ function onSubmit(values: Record<string, any>) {
             },
           },
           region: {
-            description: 'Your favourite number between 1 and 10.',
+            description: 'Pick your region',
             component: 'select',
+
             inputProps: {
               placeholder: 'Pick your region',
-            },
-          },
-          consent: {
-            description: 'I consent to the following terms and conditions.',
-            label: 'Accept terms and conditions.',
-            inputProps: {
-              required: true,
+              checked: ['North', 'South'],
             },
           },
 
-          sendMeMails: {
+          consent: {
             component: 'switch',
           },
 
@@ -167,20 +163,42 @@ function onSubmit(values: Record<string, any>) {
         @submit="onSubmit"
       >
         <template #consent="slotProps">
-          <!-- <AutoFormField v-bind="slotProps" />
-          <div class="!mt-2 text-sm">
-            I agree to the
-            <button class="text-primary underline">terms and conditions</button
-            >.
-          </div> -->
+          <div>
+            <AutoFormField v-bind="slotProps" />
+            <div class="!mt-2 text-sm text-blue-900">
+              I agree to the
+              <button class="text-primary underline text-blue-900">
+                terms and conditions</button
+              >.
+            </div>
+          </div>
         </template>
 
         <div class="flex justify-center items-center col-span-2">
-          <Button type="submit" class="w-96 bg-blue-600 hover:bg-blue-500">
+          <Button
+            type="submit"
+            class="bg-blue-600 hover:bg-blue-500 py-4 px-6 text-md rounded-2xl font-semibold"
+          >
             Submit
           </Button>
         </div>
       </AutoForm>
+    </Container>
+
+    <Container v-else class="flex flex-col justify-center items-center mt-40">
+      <div
+        class="mx-auto max-w-2xl lg:mx-0 flex flex-col justify-center gap-4 py-8"
+      >
+        <h2
+          class="font-display text-xl font-medium tracking-tighter text-blue-600 sm:text-5xl"
+        >
+          RSVP
+          <span class="text-green-500">Successful 🎉</span>
+        </h2>
+        <Button class="bg-blue-600 hover:bg-blue-500 text-2xl py-6 px-8">
+          View my ticket
+        </Button>
+      </div>
     </Container>
   </div>
 </template>
