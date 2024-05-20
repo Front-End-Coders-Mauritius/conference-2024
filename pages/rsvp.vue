@@ -78,13 +78,8 @@ const schema = z.object({
     .number({
       invalid_type_error: "Phone number must be a number.",
     })
-    .min(1, {
-      message: "Phone number must be at least 1.",
-    })
-    .max(10, {
-      message: "Phone number must be at most 10.",
-    })
-    .default(1)
+
+    .default(8)
     .optional(),
 
   days: z.enum(["friday", "saturday", "Both days"]),
@@ -109,11 +104,21 @@ function onSubmit(values: Record<string, any>) {
 </script>
 
 <template>
-  <div class="flex justify-center items-center min-h-[90vh]">
-    <div class="container mx-auto my-8">
-      <h3>RSVP form</h3>
+  <div>
+    <Container class="py-20 sm:py-32">
+      <div class="mx-auto max-w-2xl lg:mx-0">
+        <h2
+          class="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl"
+        >
+          RSVP
+        </h2>
+        <p class="mt-4 font-display text-2xl tracking-tight text-blue-900">
+          RSVP to our event by filling out the form below. We can't wait to see
+          you there! 🎉
+        </p>
+      </div>
       <AutoForm
-        class="lg:grid grid-cols-2 gap-x-12 gap-8 space-y-8 lg:space-y-0 rounded-lg w-full ring-0.5 ring- p-8 shadow-lg shadow-blue-200"
+        class="lg:grid grid-cols-2 gap-x-12 gap-8 space-y-8 my-8 lg:space-y-0 rounded-lg w-full ring-0.5 ring- p-8 shadow-lg shadow-blue-200"
         :schema="schema"
         :field-config="{
           phoneNumber: {},
@@ -176,6 +181,6 @@ function onSubmit(values: Record<string, any>) {
           </Button>
         </div>
       </AutoForm>
-    </div>
+    </Container>
   </div>
 </template>
