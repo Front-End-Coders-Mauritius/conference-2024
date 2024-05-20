@@ -1,25 +1,181 @@
 <script setup lang="ts">
+import * as z from "zod";
+import { h } from "vue";
 import { Button } from "@/components/ui/button";
+import { toast } from "@/components/ui/toast";
+import { AutoForm, AutoFormField } from "@/components/ui/auto-form";
 
-import { useToast } from "@/components/ui/toast/use-toast";
+enum specializations {
+  Frontend = "Frontend",
+  Backend = "Backend",
+  Fullstack = "Fullstack",
+  DevOps = "DevOps",
+  Mobile = "Mobile",
+  None = "I don't know",
+}
 
-const { toast } = useToast();
+enum transport {
+  Car = "Car",
+  Bus = "Bus",
+  Train = "Train",
+  Plane = "Plane",
+  None = "I don't travel",
+}
+
+enum regions {
+  North = "North",
+  South = "South",
+  East = "East",
+  West = "West",
+  Central = "Central",
+}
+
+enum days {
+  day_1 = "Day 1",
+  day_2 = "Day 2",
+  day_3 = "Day 3",
+}
+
+const schema = z.object({
+  firstName: z
+    .string({
+      required_error: "First name is required.",
+    })
+    .min(2, {
+      message: "First name must be at least 2 characters.",
+    }),
+  lastName: z
+    .string({
+      required_error: "Last name is required.",
+    })
+    .min(2, {
+      message: "Last name must be at least 2 characters.",
+    }),
+  Company: z
+    .string({
+      required_error: "Company is required.",
+    })
+    .min(2, {
+      message: "Company must be at least 2 characters.",
+    })
+    .optional(),
+
+  jobTitle: z
+    .string({
+      required_error: "Job title is required.",
+    })
+    .min(2, {
+      message: "Job title must be at least 2 characters.",
+    })
+    .optional(),
+  specializations: z
+    .nativeEnum(specializations)
+    .describe("What is your specialization?"),
+  transport: z.nativeEnum(transport).describe("How are you getting there?"),
+  region: z.nativeEnum(regions).describe("Which region are you from?"),
+
+  phoneNumber: z.coerce
+    .number({
+      invalid_type_error: "Phone number must be a number.",
+    })
+    .min(1, {
+      message: "Phone number must be at least 1.",
+    })
+    .max(10, {
+      message: "Phone number must be at most 10.",
+    })
+    .default(1)
+    .optional(),
+
+  days: z.enum(["friday", "saturday", "Both days"]),
+  consent: z.boolean().refine((value) => value, {
+    message: "You must accept the terms and conditions.",
+    path: ["acceptTerms"],
+  }),
+
+  sendMeMails: z.boolean().optional(),
+});
+
+function onSubmit(values: Record<string, any>) {
+  toast({
+    title: "You submitted the following values:",
+    description: h(
+      "pre",
+      { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" },
+      h("code", { class: "text-white" }, JSON.stringify(values, null, 2))
+    ),
+  });
+}
 </script>
 
 <template>
   <div class="flex justify-center items-center min-h-[90vh]">
-    <Button
-      variant="outline"
-      @click="
-        () => {
-          toast({
-            title: 'Scheduled: Catch up',
-            description: 'Friday, February 10, 2023 at 5:57 PM',
-          });
-        }
-      "
-    >
-      Add to calendar
-    </Button>
+    <div class="container mx-auto my-8">
+      <h3>RSVP form</h3>
+      <AutoForm
+        class="lg:grid grid-cols-2 gap-x-12 gap-8 space-y-8 lg:space-y-0 rounded-lg w-full ring-0.5 ring- p-8 shadow-lg shadow-blue-200"
+        :schema="schema"
+        :field-config="{
+          phoneNumber: {},
+          Company: {
+            label: 'Company name',
+            inputProps: {
+              placeholder: 'What`s your company name?',
+            },
+          },
+          jobTitle: {
+            label: 'Job title',
+            inputProps: {
+              placeholder: 'What`s your job title?',
+            },
+          },
+          specializations: {
+            component: 'select',
+            inputProps: {
+              placeholder: 'Pick your specialization',
+            },
+          },
+          region: {
+            description: 'Your favourite number between 1 and 10.',
+            component: 'select',
+            inputProps: {
+              placeholder: 'Pick your region',
+            },
+          },
+          consent: {
+            description: 'I consent to the following terms and conditions.',
+            label: 'Accept terms and conditions.',
+            inputProps: {
+              required: true,
+            },
+          },
+
+          sendMeMails: {
+            component: 'switch',
+          },
+
+          days: {
+            label: 'Which day are you attending?',
+            component: 'radio',
+          },
+        }"
+        @submit="onSubmit"
+      >
+        <template #consent="slotProps">
+          <!-- <AutoFormField v-bind="slotProps" />
+          <div class="!mt-2 text-sm">
+            I agree to the
+            <button class="text-primary underline">terms and conditions</button
+            >.
+          </div> -->
+        </template>
+
+        <div class="flex justify-center items-center col-span-2">
+          <Button type="submit" class="w-96 bg-blue-600 hover:bg-blue-500">
+            Submit
+          </Button>
+        </div>
+      </AutoForm>
+    </div>
   </div>
 </template>
