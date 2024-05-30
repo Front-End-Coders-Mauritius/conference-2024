@@ -134,3 +134,18 @@ Onsite privileges
 - Access to candidate contact information based on opt-in (gold)
 - Guarenteed meetup spot for frontend.mu at your company
 </div>
+
+## Speaker Sponsorship
+
+- You sponsor the flight and accomodation of a speaker to give a talk at The Web Conference. Get in touch with us for more information.
+
+#### Visibility 
+Onsite 
+Visibility on conference materials:
+- Logo on 2 lecterns
+- Logo on conference 4 roll-up banners
+- Logo on Photo Backdrop
+
+Digital
+- Logo on conference website
+- Logo & sponsorship announcement on all social media platforms as our Silver sponsor

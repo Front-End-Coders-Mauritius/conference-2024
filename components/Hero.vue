@@ -9,12 +9,8 @@
         <div class="mt-6 space-y-6 font-display text-2xl tracking-tight text-blue-900">
           <p>
             After more than <a class="wave" target="_blank" href="https://frontend.mu/meetups">50 successful meetups
-              organized</a>, we are
-            proud to announce the first ever Web conference in Mauritius.
-          </p>
-          <p>
-            A two day event where you can learn from the best in the industry,
-            meet other developers and professionals to build new connections.
+              organized</a>, we are proud to bring you a scaled up version, but still as much fun: The Web Conference.
+            A two day event where you can learn from the best in the industry,  meet other developers and professionals, build new connections and have fun while at it.
           </p>
         </div>
         <!-- <Button href="#" class="mt-10 w-full sm:hidden">
