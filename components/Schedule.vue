@@ -17,12 +17,13 @@ interface Day {
   timeSlots: TimeSlot[]
 }
 
+const selectedIndex = ref(-1)
+
 const schedule = [
   {
     date: 'April 4',
     dateTime: '2022-04-04',
-    summary:
-            'The first day of the conference is focused on dark patterns for ecommerce.',
+    summary: 'The first day of the conference is focused on dark patterns for ecommerce.',
     timeSlots: [
       {
         name: 'Steven McHail',
@@ -175,7 +176,7 @@ const tabOrientation = ref('horizontal')
 onMounted(() => {
   const smMediaQuery = window.matchMedia('(min-width: 640px)')
 
-  const onMediaQueryChange = ({ matches }) => {
+  const onMediaQueryChange = ({ matches }: MediaQueryList | MediaQueryListEvent) => {
     tabOrientation.value = matches ? 'vertical' : 'horizontal'
   }
 
@@ -204,14 +205,18 @@ onMounted(() => {
     <div class="relative mt-14 sm:mt-24">
       <BackgroundImage position="right" class="-bottom-32 -top-40" />
       <Container class="relative">
-        <Tab.Group as="div" class="mx-auto grid max-w-2xl grid-cols-1 gap-y-6 sm:grid-cols-2 lg:hidden"
-                   :vertical="tabOrientation === 'vertical'"
+        <Tab.Group
+          as="div"
+          class="mx-auto grid max-w-2xl grid-cols-1 gap-y-6 sm:grid-cols-2 lg:hidden"
+          :vertical="tabOrientation === 'vertical'"
         >
           <Tab.List
             class="-mx-4 flex gap-x-4 gap-y-10 overflow-x-auto pb-4 pl-4 sm:mx-0 sm:flex-col sm:pb-0 sm:pl-0 sm:pr-8"
           >
-            <div v-for="(day, dayIndex) in schedule" :key="day.dateTime"
-                 :class="clsx('relative w-3/4 flex-none pr-4 sm:w-auto sm:pr-0', dayIndex !== selectedIndex && 'opacity-70')"
+            <div
+              v-for="(day, dayIndex) in schedule"
+              :key="day.dateTime"
+              :class="clsx('relative w-3/4 flex-none pr-4 sm:w-auto sm:pr-0', dayIndex !== selectedIndex && 'opacity-70')"
             >
               <h3 class="text-2xl font-semibold tracking-tight text-blue-900">
                 <time :dateTime="day.dateTime">{{ day.date }}</time>
@@ -223,19 +228,14 @@ onMounted(() => {
           </Tab.List>
           <Tab.Panels>
             <Tab.Panel v-for="day in schedule" :key="day.dateTime" class="ui-not-focus-visible:outline-none">
-              <ol role="list"
-                  class="space-y-8 bg-white/60 px-10 py-14 text-center shadow-xl shadow-blue-900/5 backdrop-blur"
-              >
-                <li v-for="(timeSlot, timeSlotIndex) in day.timeSlots" :key="timeSlot.start"
-                    aria-label="..."
-                >
+              <ol role="list" class="space-y-8 bg-white/60 px-10 py-14 text-center shadow-xl shadow-blue-900/5 backdrop-blur">
+                <li v-for="(timeSlot, timeSlotIndex) in day.timeSlots" :key="timeSlot.start" aria-label="...">
                   <div v-if="timeSlotIndex > 0" class="mx-auto mb-8 h-px w-48 bg-indigo-500/10" />
                   <h4 class="text-lg font-semibold tracking-tight text-blue-900">
                     {{ timeSlot.name }}
                   </h4>
                   <p v-if="timeSlot.description" class="mt-1 tracking-tight text-blue-900">
-                    {{
-                      timeSlot.description }}
+                    {{ timeSlot.description }}
                   </p>
                   <p class="mt-1 font-mono text-sm text-slate-500">
                     <time :dateTime="`${day.dateTime}T${timeSlot.start}-08:00`">
@@ -260,17 +260,14 @@ onMounted(() => {
             <p class="mt-1.5 text-base tracking-tight text-blue-900">
               {{ day.summary }}
             </p>
-            <ol role="list"
-                class="space-y-8 bg-white/60 px-10 py-14 text-center shadow-xl shadow-blue-900/5 backdrop-blur mt-10"
-            >
+            <ol role="list" class="space-y-8 bg-white/60 px-10 py-14 text-center shadow-xl shadow-blue-900/5 backdrop-blur mt-10">
               <li v-for="(timeSlot, timeSlotIndex) in day.timeSlots" :key="timeSlot.start" aria-label="...">
                 <div v-if="timeSlotIndex > 0" class="mx-auto mb-8 h-px w-48 bg-indigo-500/10" />
                 <h4 class="text-lg font-semibold tracking-tight text-blue-900">
                   {{ timeSlot.name }}
                 </h4>
                 <p v-if="timeSlot.description" class="mt-1 tracking-tight text-blue-900">
-                  {{
-                    timeSlot.description }}
+                  {{ timeSlot.description }}
                 </p>
                 <p class="mt-1 font-mono text-sm text-slate-500">
                   <time :dateTime="`${day.dateTime}T${timeSlot.start}-08:00`">

@@ -1,7 +1,6 @@
 <script setup>
-import { onMounted, ref } from 'vue'
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/vue'
-
+import { onMounted, ref } from 'vue'
 import andrewGreeneImage from '@/assets/images/avatars/andrew-greene.jpg'
 import cathleneBurrageImage from '@/assets/images/avatars/cathlene-burrage.jpg'
 import damarisKimuraImage from '@/assets/images/avatars/damaris-kimura.jpg'
@@ -185,9 +184,10 @@ const days = [
           Learn from the experts on the cutting-edge of deception at the most sinister companies.
         </p>
       </div>
-      <TabGroup as="div"
-                class="mt-14 grid grid-cols-1 items-start gap-x-8 gap-y-8 sm:mt-16 sm:gap-y-16 lg:mt-24 lg:grid-cols-4"
-                :vertical="tabOrientation === 'vertical'"
+      <TabGroup
+        as="div"
+        class="mt-14 grid grid-cols-1 items-start gap-x-8 gap-y-8 sm:mt-16 sm:gap-y-16 lg:mt-24 lg:grid-cols-4"
+        :vertical="tabOrientation === 'vertical'"
       >
         <div class="relative -mx-4 flex overflow-x-auto pb-4 sm:mx-0 sm:block sm:overflow-visible sm:pb-0">
           <div class="absolute bottom-0 left-0.5 top-2 hidden w-px bg-slate-200 lg:block" />
@@ -205,17 +205,16 @@ const days = [
                     }"
                   />
                   <div class="relative">
-                    <div class="font-mono text-sm"
-                         :class="{ 'text-blue-600': dayIndex === selectedIndex, 'text-slate-500': dayIndex !== selectedIndex }"
+                    <div
+                      class="font-mono text-sm"
+                      :class="{ 'text-blue-600': dayIndex === selectedIndex, 'text-slate-500': dayIndex !== selectedIndex }"
                     >
                       <Tab class="ui-not-focus-visible:outline-none">
                         <span class="absolute inset-0" />
                         {{ day.name }}
                       </Tab>
                     </div>
-                    <time :dateTime="day.dateTime"
-                          class="mt-1.5 block text-2xl font-semibold tracking-tight text-blue-900"
-                    >
+                    <time :dateTime="day.dateTime" class="mt-1.5 block text-2xl font-semibold tracking-tight text-blue-900">
                       {{ day.date }}
                     </time>
                   </div>
@@ -232,19 +231,19 @@ const days = [
             >
               <div v-for="(speaker, speakerIndex) in day.speakers" :key="speakerIndex">
                 <div class="group relative h-[17.5rem] transform overflow-hidden rounded-4xl">
-                  <div class="absolute bottom-6 left-0 right-4 top-0 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6"
-                       :class="[
-                         'border-blue-300',
-                         'border-indigo-300',
-                         'border-sky-300',
-                       ][speakerIndex % 3]"
+                  <div
+                    class="absolute bottom-6 left-0 right-4 top-0 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6"
+                    :class="[
+                      'border-blue-300',
+                      'border-indigo-300',
+                      'border-sky-300',
+                    ][speakerIndex % 3]"
                   />
-                  <div class="absolute inset-0 bg-indigo-50"
-                       :style="{ clipPath: `url(#${id}-${speakerIndex % 3})` }"
-                  >
-                    <img class="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-110"
-                         :src="speaker.image" alt="" priority
-                         sizes="(min-width: 1280px) 17.5rem, (min-width: 1024px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  <div class="absolute inset-0 bg-indigo-50" :style="{ clipPath: `url(#${id}-${speakerIndex % 3})` }">
+                    <img
+                      class="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-110"
+                      :src="speaker.image" alt="" priority
+                      sizes="(min-width: 1280px) 17.5rem, (min-width: 1024px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
                     >
                   </div>
                 </div>
