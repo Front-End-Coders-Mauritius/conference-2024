@@ -44,7 +44,7 @@ const appConfig = useAppConfig()
 }
 
 a.wave {
-  border-bottom: 2px solid theme(colors.blue.500);
+  border-bottom: 2px solid theme("colors.blue.500");
 
   &:hover {
     border-bottom: none;
