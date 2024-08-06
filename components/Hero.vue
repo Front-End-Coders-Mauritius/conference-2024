@@ -1,3 +1,8 @@
+<script setup>
+const props = defineProps({})
+const appConfig = useAppConfig()
+</script>
+
 <template>
   <div class="relative py-20 sm:pb-24">
     <Container class="relative z-10">
@@ -17,9 +22,12 @@
           Get your tickets
         </Button> -->
         <dl
-          class="mt-10 grid grid-cols-2 gap-x-10 gap-y-6 sm:mt-16 sm:gap-x-16 sm:gap-y-10 sm:text-center lg:auto-cols-auto lg:grid-flow-col lg:grid-cols-none lg:justify-start lg:text-left">
+          class="mt-10 grid grid-cols-2 gap-x-10 gap-y-6 sm:mt-16 sm:gap-x-16 sm:gap-y-10 sm:text-center lg:auto-cols-auto lg:grid-flow-col lg:grid-cols-none lg:justify-start lg:text-left"
+        >
           <div v-for="(value, key) of appConfig.statistics" :key="key">
-            <dt class="font-mono text-sm capitalize text-blue-600">{{ key }}</dt>
+            <dt class="font-mono text-sm capitalize text-blue-600">
+              {{ key }}
+            </dt>
             <dd class="mt-0.5 text-2xl font-semibold tracking-tight text-blue-900">
               {{ value }}
             </dd>
@@ -30,14 +38,8 @@
   </div>
 </template>
 
-<script setup>
-const props = defineProps();
-const appConfig = useAppConfig();
-</script>
-
 <style scoped lang="postcss">
 /* Add any scoped styles if needed */
-
 
 :root {
   --thetransition: all .5s cubic-bezier(1, .25, 0, .75) 0s;

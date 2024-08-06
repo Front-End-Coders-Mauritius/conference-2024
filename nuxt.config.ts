@@ -7,8 +7,8 @@ export default defineNuxtConfig({
   postcss: {
     plugins: {
       'tailwindcss/nesting': {},
-      tailwindcss: {},
-      autoprefixer: {},
+      'tailwindcss': {},
+      'autoprefixer': {},
     },
   },
 
@@ -17,26 +17,26 @@ export default defineNuxtConfig({
     // typeCheck: true
   },
   content: {
-    documentDriven: true
+    documentDriven: true,
   },
 
-  modules: ["@nuxt/image", "@nuxt/content", "@nuxt/eslint"],
+  modules: ['@nuxt/image', '@nuxt/content', '@nuxt/eslint'],
 
   eslint: {
     config: {
       standalone: false,
-    }
+    },
   },
 
   app: {
-     head: {
+    head: {
       link: [
         {
-          rel: "icon",
-          type: "image/svg+xml",
-          href: "/favicon.svg",
+          rel: 'icon',
+          type: 'image/svg+xml',
+          href: '/favicon.svg',
         },
       ],
-     }
-  }
+    },
+  },
 })

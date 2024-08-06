@@ -1,13 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./components/**/*.{js,vue,ts}",
-    "./layouts/**/*.vue",
-    "./pages/**/*.{js,vue,ts,md}",
-    "./content/**/*.{js,vue,ts,md}",
-    "./plugins/**/*.{js,ts}",
-    "./app.vue",
-    "./error.vue",
+    './components/**/*.{js,vue,ts}',
+    './layouts/**/*.vue',
+    './pages/**/*.{js,vue,ts,md}',
+    './content/**/*.{js,vue,ts,md}',
+    './plugins/**/*.{js,ts}',
+    './app.vue',
+    './error.vue',
   ],
   theme: {
     extend: {
@@ -32,4 +32,3 @@ export default {
     require('@tailwindcss/typography'),
   ],
 }
-

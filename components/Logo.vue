@@ -1,5 +1,5 @@
 <template>
-  <svg viewBox="0 0 2154 471" fill="none" xmlns="http://www.w3.org/2000/svg" >
+  <svg viewBox="0 0 2154 471" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="235.5" cy="235.5" r="235.5" fill="currentColor" />
     <path
       fill-rule="evenodd"
