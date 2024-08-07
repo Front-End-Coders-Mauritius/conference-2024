@@ -4,6 +4,7 @@
   "eslint.codeActionsOnSave.mode": "all",
   "eslint.enable": true,
   "eslint.format.enable": true,
+  "editor.wordWrap": "on",
 
   // Disable the default formatter, use eslint instead
   "prettier.enable": false,
