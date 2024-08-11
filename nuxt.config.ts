@@ -2,13 +2,13 @@
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  css: ["~/assets/css/main.css"],
+  css: ['~/assets/css/main.css'],
 
   postcss: {
     plugins: {
-      "tailwindcss/nesting": {},
-      tailwindcss: {},
-      autoprefixer: {},
+      'tailwindcss/nesting': {},
+      'tailwindcss': {},
+      'autoprefixer': {},
     },
   },
 
@@ -21,38 +21,38 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    "@nuxt/image",
-    "@nuxt/content",
-    "@nuxtjs/tailwindcss",
-    "shadcn-nuxt",
-    "@nuxt/eslint"
+    '@nuxt/image',
+    '@nuxt/content',
+    '@nuxtjs/tailwindcss',
+    'shadcn-nuxt',
+    '@nuxt/eslint',
   ],
   shadcn: {
     /**
      * Prefix for all the imported component
      */
-    prefix: "",
+    prefix: '',
     /**
      * Directory that the component lives in.
      * @default "./components/ui"
      */
-    componentDir: "./components/ui",
+    componentDir: './components/ui',
   },
   app: {
     head: {
       link: [
         {
-          rel: "icon",
-          type: "image/svg+xml",
-          href: "/favicon.svg",
+          rel: 'icon',
+          type: 'image/svg+xml',
+          href: '/favicon.svg',
         },
       ],
-    }
+    },
   },
 
   eslint: {
     config: {
       standalone: false,
-    }
+    },
   },
 })

@@ -1,28 +1,34 @@
 <script setup lang="ts">
-import AutoFormLabel from "./AutoFormLabel.vue";
-import { beautifyObjectName } from "./utils";
-import type { FieldProps } from "./interface";
+import AutoFormLabel from './AutoFormLabel.vue'
+import { beautifyObjectName } from './utils'
+import type { FieldProps } from './interface'
 import {
   FormControl,
   FormDescription,
   FormField,
   FormItem,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
 
 defineOptions({
   inheritAttrs: false,
-});
+})
 
-defineProps<FieldProps>();
+defineProps<FieldProps>()
 </script>
 
 <template>
-  <FormField v-slot="slotProps" :name="fieldName">
+  <FormField
+    v-slot="slotProps"
+    :name="fieldName"
+  >
     <FormItem>
       <div class="flex justify-between justify-center">
-        <AutoFormLabel v-if="!config?.hideLabel" :required="required">
+        <AutoFormLabel
+          v-if="!config?.hideLabel"
+          :required="required"
+        >
           {{ config?.label || beautifyObjectName(label ?? fieldName) }}
         </AutoFormLabel>
         <FormMessage />

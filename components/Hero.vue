@@ -1,3 +1,8 @@
+<script setup>
+const props = defineProps({})
+const appConfig = useAppConfig()
+</script>
+
 <template>
   <div class="relative py-20 sm:pb-24">
     <Container class="relative z-10">
@@ -8,7 +13,11 @@
         <ConfLogo class="hidden md:block" />
         <div class="mt-6 space-y-6 font-display text-2xl tracking-tight text-blue-900">
           <p>
-            After more than <a class="wave" target="_blank" href="https://frontend.mu/meetups">50 successful meetups
+            After more than <a
+              class="wave"
+              target="_blank"
+              href="https://frontend.mu/meetups"
+            >50 successful meetups
               organized</a>, we are proud to bring you a scaled up version, but still as much fun: The Web Conference.
             A two day event where you can learn from the best in the industry,  meet other developers and professionals, build new connections and have fun while at it.
           </p>
@@ -17,9 +26,15 @@
           Get your tickets
         </Button> -->
         <dl
-          class="mt-10 grid grid-cols-2 gap-x-10 gap-y-6 sm:mt-16 sm:gap-x-16 sm:gap-y-10 sm:text-center lg:auto-cols-auto lg:grid-flow-col lg:grid-cols-none lg:justify-start lg:text-left">
-          <div v-for="(value, key) of appConfig.statistics" :key="key">
-            <dt class="font-mono text-sm capitalize text-blue-600">{{ key }}</dt>
+          class="mt-10 grid grid-cols-2 gap-x-10 gap-y-6 sm:mt-16 sm:gap-x-16 sm:gap-y-10 sm:text-center lg:auto-cols-auto lg:grid-flow-col lg:grid-cols-none lg:justify-start lg:text-left"
+        >
+          <div
+            v-for="(value, key) of appConfig.statistics"
+            :key="key"
+          >
+            <dt class="font-mono text-sm capitalize text-blue-600">
+              {{ key }}
+            </dt>
             <dd class="mt-0.5 text-2xl font-semibold tracking-tight text-blue-900">
               {{ value }}
             </dd>
@@ -30,21 +45,15 @@
   </div>
 </template>
 
-<script setup>
-const props = defineProps();
-const appConfig = useAppConfig();
-</script>
-
 <style scoped lang="postcss">
 /* Add any scoped styles if needed */
-
 
 :root {
   --thetransition: all .5s cubic-bezier(1, .25, 0, .75) 0s;
 }
 
 a.wave {
-  border-bottom: 2px solid theme(colors.blue.500);
+  border-bottom: 2px solid theme("colors.blue.500");
 
   &:hover {
     border-bottom: none;
