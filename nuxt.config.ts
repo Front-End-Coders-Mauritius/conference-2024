@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     documentDriven: true
   },
 
-  modules: ["@nuxt/image", "@nuxt/content"],
+  modules: ["@nuxt/image", "@nuxt/content", "@nuxt/eslint"],
 
   app: {
      head: {
@@ -32,5 +32,11 @@ export default defineNuxtConfig({
         },
       ],
      }
-  }
+  },
+
+  eslint: {
+    config: {
+      standalone: false,
+    }
+  },
 })
