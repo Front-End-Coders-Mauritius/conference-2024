@@ -2,6 +2,11 @@
 title: Sponsorship Proposal
 ---
 
+## The content of this page is a work in progress. Please get in touch with us for more information.
+
+> Below are the previous sponsorship packages. 
+> We are currently working on new packages for the 2025 edition of The Web Conference.
+
 ## Platinum Sponsorship
 
 <div class="font-bold text-xl bg-gray-200 p-4 rounded-full border-gray-100 text-gray-500 border-2 w-fit">
