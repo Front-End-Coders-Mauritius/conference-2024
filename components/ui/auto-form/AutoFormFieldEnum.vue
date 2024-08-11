@@ -1,36 +1,42 @@
 <script setup lang="ts">
-import AutoFormLabel from "./AutoFormLabel.vue";
-import { beautifyObjectName } from "./utils";
-import type { FieldProps } from "./interface";
+import AutoFormLabel from './AutoFormLabel.vue'
+import { beautifyObjectName } from './utils'
+import type { FieldProps } from './interface'
 import {
   FormControl,
   FormDescription,
   FormField,
   FormItem,
   FormMessage,
-} from "@/components/ui/form";
+} from '@/components/ui/form'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+} from '@/components/ui/select'
+import { Label } from '@/components/ui/label'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 
 defineProps<
   FieldProps & {
-    options?: string[];
+    options?: string[]
   }
->();
+>()
 </script>
 
 <template>
-  <FormField v-slot="slotProps" :name="fieldName">
+  <FormField
+    v-slot="slotProps"
+    :name="fieldName"
+  >
     <FormItem>
       <div class="flex justify-between justify-center">
-        <AutoFormLabel v-if="!config?.hideLabel" :required="required">
+        <AutoFormLabel
+          v-if="!config?.hideLabel"
+          :required="required"
+        >
           {{ config?.label || beautifyObjectName(label ?? fieldName) }}
         </AutoFormLabel>
         <FormMessage />
@@ -40,7 +46,7 @@ defineProps<
           <RadioGroup
             v-if="config?.component === 'radio'"
             :disabled="disabled"
-            :orientation="'vertical'"
+            orientation="vertical"
             v-bind="{ ...slotProps.componentField }"
           >
             <div
@@ -48,7 +54,10 @@ defineProps<
               :key="option"
               class="mb-2 flex items-center gap-3 space-y-0"
             >
-              <RadioGroupItem :id="`${option}-${index}`" :value="option" />
+              <RadioGroupItem
+                :id="`${option}-${index}`"
+                :value="option"
+              />
               <Label :for="`${option}-${index}`">{{
                 beautifyObjectName(option)
               }}</Label>

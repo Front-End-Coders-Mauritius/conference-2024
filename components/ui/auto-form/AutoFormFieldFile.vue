@@ -28,9 +28,15 @@ async function parseFileAsString(file: File | undefined): Promise<string> {
 </script>
 
 <template>
-  <FormField v-slot="slotProps" :name="fieldName">
+  <FormField
+    v-slot="slotProps"
+    :name="fieldName"
+  >
     <FormItem v-bind="$attrs">
-      <AutoFormLabel v-if="!config?.hideLabel" :required="required">
+      <AutoFormLabel
+        v-if="!config?.hideLabel"
+        :required="required"
+      >
         {{ config?.label || beautifyObjectName(label ?? fieldName) }}
       </AutoFormLabel>
       <FormControl>
@@ -47,11 +53,14 @@ async function parseFileAsString(file: File | undefined): Promise<string> {
               slotProps.componentField.onInput(parsed)
             }"
           />
-          <div v-else class="flex h-10 w-full items-center justify-between rounded-md border border-input bg-transparent pl-3 pr-1 py-1 text-sm shadow-sm transition-colors">
+          <div
+            v-else
+            class="flex h-10 w-full items-center justify-between rounded-md border border-input bg-transparent pl-3 pr-1 py-1 text-sm shadow-sm transition-colors"
+          >
             <p>{{ inputFile?.name }}</p>
             <Button
-              :size="'icon'"
-              :variant="'ghost'"
+              size="icon"
+              variant="ghost"
               class="h-[26px] w-[26px]"
               aria-label="Remove file"
               type="button"

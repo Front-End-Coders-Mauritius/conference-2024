@@ -1,15 +1,22 @@
 <script setup lang="ts">
-const { toc } = useContent();
-
+const { toc } = useContent()
 </script>
 
 <template>
   <NuxtLayout>
-    <div v-if="toc && toc.links" class="bg-white shadow-sm sticky top-0 block md:hidden w-full">
+    <div
+      v-if="toc && toc.links"
+      class="bg-white shadow-sm sticky top-0 block md:hidden w-full"
+    >
       <ul class="list-none flex items-center p-4 gap-2">
-        <li v-for="link in toc.links" :key="link.text">
-          <a :href="`#${link.id}`"
-            class="text-blue-600 hover:font-bold target:underline block no-underline target:text-blue-700">
+        <li
+          v-for="link in toc.links"
+          :key="link.text"
+        >
+          <a
+            :href="`#${link.id}`"
+            class="text-blue-600 hover:font-bold target:underline block no-underline target:text-blue-700"
+          >
             {{ link.text.replace("Sponsorship", "") }}
           </a>
         </li>
@@ -25,10 +32,19 @@ const { toc } = useContent();
         </ContentDoc>
       </div>
 
-      <div v-if="toc && toc.links" class="col-span-3 hidden md:block">
+      <div
+        v-if="toc && toc.links"
+        class="col-span-3 hidden md:block"
+      >
         <ul class="sticky top-0 space-y-3 pt-12">
-          <li v-for="link in toc.links" :key="link.text">
-            <a :href="`#${link.id}`" class="text-blue-600 hover:font-bold target:underline block">
+          <li
+            v-for="link in toc.links"
+            :key="link.text"
+          >
+            <a
+              :href="`#${link.id}`"
+              class="text-blue-600 hover:font-bold target:underline block"
+            >
               {{ link.text }}
             </a>
             <!-- mobile -->

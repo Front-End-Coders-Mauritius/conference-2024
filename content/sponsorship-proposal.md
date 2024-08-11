@@ -4,7 +4,7 @@ title: Sponsorship Proposal
 
 ## The content of this page is a work in progress. Please get in touch with us for more information.
 
-> Below are the previous sponsorship packages. 
+> Below are the previous sponsorship packages.
 > We are currently working on new packages for the 2025 edition of The Web Conference.
 
 ## Platinum Sponsorship
@@ -13,7 +13,7 @@ title: Sponsorship Proposal
 MUR 350,000
 </div>
 
-#### Visibility 
+#### Visibility
 
 Onsite
 Visibility on conference materials:
@@ -45,7 +45,7 @@ Digital
 MUR 250,000
 </div>
 
-#### Visibility 
+#### Visibility
 
 Onsite
 Visibility on conference materials:
@@ -71,14 +71,13 @@ Digital
 - Access to candidate contact information who opted-in for data sharing.
 - Guarenteed meetup spot for frontend.mu at your company
 
-
 ## Silver Sponsorship
 <div class="font-bold text-xl bg-stone-200 p-4 rounded-full border-stone-50 text-stone-800 border-2 w-fit">
 MUR 150,000
 </div>
 
-#### Visibility 
-Onsite 
+#### Visibility
+Onsite
 Visibility on conference materials:
 - Logo on 2 lecterns
 - Logo on conference 4 roll-up banners
@@ -108,16 +107,15 @@ MUR 50,000
 
 Digital privileges
 - Logo on conference website in Bronze Sponsorship section
-- Logo & sponsorship announcement on all social media platforms 
+- Logo & sponsorship announcement on all social media platforms
 
 Onsite privileges
 - Logo on photo backdrop
 
-
 <div class="hidden">
 ## Offers
 
-#### Visibility 
+#### Visibility
 - Visilibity on all conference materials
 - Logo on conference website
 - Logo on social media platforms
@@ -127,8 +125,6 @@ Onsite privileges
 - roll-up banners x4 (RS 3000)
 - Screen with promotional video (Paoma - Ask for price)
 - Backdrop
-
-
 
 #### Presence
 - Booth (4 Gold - 10 Silver)
@@ -144,8 +140,8 @@ Onsite privileges
 
 - You sponsor the flight and accomodation of a speaker to give a talk at The Web Conference. Get in touch with us for more information.
 
-#### Visibility 
-Onsite 
+#### Visibility
+Onsite
 Visibility on conference materials:
 - Logo on 2 lecterns
 - Logo on conference 4 roll-up banners

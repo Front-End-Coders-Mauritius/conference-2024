@@ -1,25 +1,29 @@
-<template>
-  <component :is="buttonType" :class="computedClasses" v-bind="buttonProps">
-    <slot></slot>
-  </component>
-</template>
-
 <script setup>
-import { computed } from "vue";
-import clsx from "clsx";
+import { computed } from 'vue'
+import clsx from 'clsx'
 
-const props = defineProps(["className", "href"]);
+const props = defineProps(['className', 'href'])
 
-const buttonType = props.href ? "RouterLink" : "button";
-const buttonProps = props.href ? { to: props.href } : {};
+const buttonType = props.href ? 'RouterLink' : 'button'
+const buttonProps = props.href ? { to: props.href } : {}
 
 const computedClasses = computed(() =>
   clsx(
-    "button",
-    props.className
-  )
-);
+    'button',
+    props.className,
+  ),
+)
 </script>
+
+<template>
+  <component
+    :is="buttonType"
+    :class="computedClasses"
+    v-bind="buttonProps"
+  >
+    <slot />
+  </component>
+</template>
 
 <style lang="postcss">
 .button {
