@@ -1,9 +1,9 @@
 <template>
   <!-- <BackgroundImage class="-bottom-14 -top-36" /> -->
-  <div>
+  <NuxtLayout>
     <Hero />
     <HomeStatistics />
     <Sponsors />
     <Footer />
-  </div>
+  </NuxtLayout>
 </template>

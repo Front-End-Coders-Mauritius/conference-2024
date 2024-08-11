@@ -105,12 +105,10 @@ function onSubmit(values: Record<string, any>) {
 </script>
 
 <template>
-  <div class="py-20 sm:py-32">
-    <Container v-if="true">
+  <NuxtLayout>
+    <Container v-if="true" class="py-20 sm:py-32">
       <div class="mx-auto max-w-2xl lg:mx-0">
-        <h2
-          class="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl"
-        >
+        <h2 class="font-display text-4xl font-medium tracking-tighter text-blue-600 sm:text-5xl">
           RSVP
         </h2>
         <p class="mt-4 font-display text-2xl tracking-tight text-blue-900">
@@ -120,8 +118,7 @@ function onSubmit(values: Record<string, any>) {
       </div>
       <AutoForm
         class="lg:grid grid-cols-2 gap-x-12 gap-8 space-y-8 my-8 lg:space-y-0 rounded-lg w-full ring-0.5 ring- p-8 shadow-lg shadow-blue-200"
-        :schema="schema"
-        :field-config="{
+        :schema="schema" :field-config="{
           phoneNumber: {},
           Company: {
             label: 'Company name',
@@ -159,26 +156,20 @@ function onSubmit(values: Record<string, any>) {
             label: 'Which day are you attending?',
             component: 'radio',
           },
-        }"
-        @submit="onSubmit"
-      >
+        }" @submit="onSubmit">
         <template #consent="slotProps">
           <div>
             <AutoFormField v-bind="slotProps" />
             <div class="!mt-2 text-sm text-blue-900">
               I agree to the
               <button class="text-primary underline text-blue-900">
-                terms and conditions</button
-              >.
+                terms and conditions</button>.
             </div>
           </div>
         </template>
 
         <div class="flex justify-center items-center col-span-2">
-          <Button
-            type="submit"
-            class="bg-blue-600 hover:bg-blue-500 py-4 px-6 text-md rounded-2xl font-semibold"
-          >
+          <Button type="submit" class="bg-blue-600 hover:bg-blue-500 py-4 px-6 text-md rounded-2xl font-semibold">
             Submit
           </Button>
         </div>
@@ -186,12 +177,8 @@ function onSubmit(values: Record<string, any>) {
     </Container>
 
     <Container v-else class="flex flex-col justify-center items-center mt-40">
-      <div
-        class="mx-auto max-w-2xl lg:mx-0 flex flex-col justify-center gap-4 py-8"
-      >
-        <h2
-          class="font-display text-xl font-medium tracking-tighter text-blue-600 sm:text-5xl"
-        >
+      <div class="mx-auto max-w-2xl lg:mx-0 flex flex-col justify-center gap-4 py-8">
+        <h2 class="font-display text-xl font-medium tracking-tighter text-blue-600 sm:text-5xl">
           RSVP
           <span class="text-green-500">Successful 🎉</span>
         </h2>
@@ -200,5 +187,5 @@ function onSubmit(values: Record<string, any>) {
         </Button>
       </div>
     </Container>
-  </div>
+  </NuxtLayout>
 </template>
