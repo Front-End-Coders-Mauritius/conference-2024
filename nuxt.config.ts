@@ -25,6 +25,7 @@ export default defineNuxtConfig({
     "@nuxt/content",
     "@nuxtjs/tailwindcss",
     "shadcn-nuxt",
+    "@nuxt/eslint"
   ],
   shadcn: {
     /**
@@ -46,6 +47,12 @@ export default defineNuxtConfig({
           href: "/favicon.svg",
         },
       ],
-    },
+    }
   },
-});
+
+  eslint: {
+    config: {
+      standalone: false,
+    }
+  },
+})
