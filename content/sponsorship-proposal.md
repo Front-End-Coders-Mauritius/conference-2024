@@ -2,14 +2,9 @@
 title: Sponsorship Proposal
 ---
 
-## The content of this page is a work in progress. Please get in touch with us for more information.
-
-> Below are the previous sponsorship packages.
-> We are currently working on new packages for the 2025 edition of The Web Conference.
-
 ## Platinum Sponsorship
 
-<div class="font-bold text-xl bg-gray-200 p-4 rounded-full border-gray-100 text-gray-500 border-2 w-fit">
+<div class="font-bold text-xl bg-gray-200 p-4 rounded-full border-gray-100 text-gray-600 border-2 w-fit">
 MUR 350,000
 </div>
 
@@ -38,10 +33,10 @@ Digital
 #### Networking
 - Access to all participants
 - Access to candidate contact information grouped by interest based on opt-in
-- Guarenteed meetup spot for frontend.mu at your company
+- Guaranteed meetup spot for frontend.mu at your company
 
 ## Gold Sponsorship
-<div class="font-bold text-xl bg-amber-200 p-4 rounded-full border-amber-100 text-amber-500 border-2 w-fit">
+<div class="font-bold text-xl bg-amber-200 p-4 rounded-full border-amber-100 text-amber-800 border-2 w-fit">
 MUR 250,000
 </div>
 
@@ -69,7 +64,7 @@ Digital
 #### Networking
 - Access to all participants during the event
 - Access to candidate contact information who opted-in for data sharing.
-- Guarenteed meetup spot for frontend.mu at your company
+- Guaranteed meetup spot for frontend.mu at your company
 
 ## Silver Sponsorship
 <div class="font-bold text-xl bg-stone-200 p-4 rounded-full border-stone-50 text-stone-800 border-2 w-fit">
@@ -133,7 +128,7 @@ Onsite privileges
 #### Networking
 - Access to all participants
 - Access to candidate contact information based on opt-in (gold)
-- Guarenteed meetup spot for frontend.mu at your company
+- Guaranteed meetup spot for frontend.mu at your company
 </div>
 
 ## Speaker Sponsorship
