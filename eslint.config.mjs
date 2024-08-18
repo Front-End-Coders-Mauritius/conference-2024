@@ -14,6 +14,7 @@ export default withNuxt(
       'vue/no-template-shadow': 'off',
       'vue/no-multiple-template-root': 'off',
       'vue/max-attributes-per-line': 'warn',
+      'vue/html-self-closing': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/ban-ts-comment': 'off',
@@ -21,6 +22,7 @@ export default withNuxt(
       'no-console': 'warn',
       'array-callback-return': 'off',
       'no-alert': 'off',
+      'ts/consistent-type-definitions': 'off',
     },
   },
 )
