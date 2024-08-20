@@ -170,7 +170,8 @@ function isSessionBookmarked(sessionId: string) {
           <AgendaSessionSpeaker
             v-for="speaker in session.speakers"
             :key="speaker.id"
-            class="flex flex-row items-center gap-1 z-[1]"
+            :href="`/speaker/${speaker.id}`"
+            :class="cn(buttonVariants({ variant: 'ghost' }), 'h-fit flex flex-row items-center gap-1 p-0 z-[1] hover:bg-transparent hover:scale-105 motion-safe:transition-all')"
           >
             <AgendaSessionSpeakerAvatar
               :src="speaker.avatar ?? ''"

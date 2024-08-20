@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <NuxtLink>
     <slot></slot>
-  </div>
+  </NuxtLink>
 </template>
