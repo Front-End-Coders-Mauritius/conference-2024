@@ -5,22 +5,10 @@ const props = defineProps({
     type: String,
   },
 })
-
-const router = useRouter()
-
-function navigateToHref() {
-  router.push(props.href)
-}
 </script>
 
 <template>
-  <span
-    :data-href="href"
-    tabindex="0"
-    role="link"
-    @click.prevent="navigateToHref"
-    @keyup.enter.prevent="navigateToHref"
-  >
+  <a :href="href" tabindex="0">
     <slot></slot>
-  </span>
+  </a>
 </template>

@@ -8,10 +8,9 @@ defineProps({
 </script>
 
 <template>
-  <NuxtLink
-    :href="href"
-    tabindex="0"
-  >
+  <div class="relative">
+    <NuxtLink :to="href" class="absolute inset-0 z-0" tabindex="0">
+    </NuxtLink>
     <slot></slot>
-  </NuxtLink>
+  </div>
 </template>
