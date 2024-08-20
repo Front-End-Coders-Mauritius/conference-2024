@@ -119,7 +119,7 @@ function isSessionBookmarked(sessionId: string) {
         class="sticky top-0 row-start-1 row-end-2 col-start-1 -col-end-1 mb-5 bg-white rounded-md shadow-lg z-[3]"
         aria-hidden="true"
       ></div>
-      <p
+      <AgendaRoom
         v-for="(room, index) in ROOMS"
         :key="room"
         class="sticky top-0 row-start-1 row-end-2 mb-5 p-2 uppercase text-md text-center text-blue-800 rounded-sm z-[3]"
@@ -127,10 +127,9 @@ function isSessionBookmarked(sessionId: string) {
           gridColumnStart: index + 2,
           gridColumnEnd: index + 3,
         }"
-        aria-hidden="true"
       >
         {{ room }}
-      </p>
+      </AgendaRoom>
       <AgendaTimeInterval
         v-for="(interval, index) in timeintervals"
         :key="interval.format('HH:mm')"
