@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button'
   <Button
     type="button"
     variant="secondary"
-    @click.prevent="console.log('clicked bookmark button')"
   >
     <slot></slot>
   </Button>

@@ -17,7 +17,7 @@ defineProps({
 
 <template>
   <p>
-    {{ startTime }} - {{ endTime }}
-    <span v-if="location">@ {{ location }}</span>
+    <time>{{ startTime }} - {{ endTime }}</time>
+    <span v-if="location"> @ {{ location }}</span>
   </p>
 </template>

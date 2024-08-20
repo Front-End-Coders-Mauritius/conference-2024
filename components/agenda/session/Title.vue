@@ -1,5 +1,5 @@
 <template>
-  <time>
+  <p>
     <slot></slot>
-  </time>
+  </p>
 </template>

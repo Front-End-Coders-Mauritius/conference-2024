@@ -21,8 +21,7 @@
           "avatar": "https://i.pravatar.cc/32"
         }
       ],
-      "room": "room1",
-      "isBookmarked": false
+      "room": "room1"
     }
   ],
   "2024-09-04": [
@@ -41,8 +40,7 @@
           "avatar": "https://i.pravatar.cc/32"
         }
       ],
-      "room": "room1",
-      "isBookmarked": false
+      "room": "room1"
     },
     {
       "id": "bz",
@@ -53,8 +51,7 @@
         "end": "10:30"
       },
       "speakers": [],
-      "room": "room2",
-      "isBookmarked": false
+      "room": "room2"
     },
     {
       "id": "b2",
@@ -65,8 +62,7 @@
         "end": "11:00"
       },
       "speakers": [],
-      "room": "room1",
-      "isBookmarked": false
+      "room": "room1"
     },
     {
       "id": "b3",
@@ -77,8 +73,7 @@
         "end": "11:42"
       },
       "speakers": [],
-      "room": "room2",
-      "isBookmarked": false
+      "room": "room2"
     },
     {
       "id": "b4",
@@ -89,8 +84,7 @@
         "end": "13:00"
       },
       "speakers": [],
-      "room": "room2",
-      "isBookmarked": false
+      "room": "room2"
     }
   ]
 }

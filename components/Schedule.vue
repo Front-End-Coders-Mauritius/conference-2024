@@ -11,7 +11,7 @@ import { buttonVariants } from '@/components/ui/button'
 import { useDayjs } from '#dayjs'
 import { cn } from '~/lib/utils'
 import type { Session, SessionDate } from '~/types'
-import { rooms, sessionsByDate } from '~/constants'
+import { BOOKMARKED_SESSIONS_STORAGE_KEY, ROOMS, SESSIONS_BY_DATE } from '~/constants'
 
 const props = defineProps({
   intervalInMins: {
@@ -24,9 +24,15 @@ const dayjs = useDayjs()
 dayjs.extend(customParseFormat)
 dayjs.extend(isSameOrBefore)
 
-const selectedDate = ref(Object.keys(sessionsByDate)[0] as SessionDate)
+const sessionsByDate = ref(SESSIONS_BY_DATE)
+const selectedDate = ref(Object.keys(sessionsByDate.value)[0] as SessionDate)
+const bookmarkedSessions = ref(new Map<string, Session>())
 
-const selectedDateSessions = computed(() => sessionsByDate[selectedDate.value] as Array<Session>)
+const selectedDateSessions = computed(() => sessionsByDate.value[selectedDate.value] as Array<Session>)
+
+onMounted(() => {
+  bookmarkedSessions.value = new Map(JSON.parse(localStorage.getItem(BOOKMARKED_SESSIONS_STORAGE_KEY)!))
+})
 
 function getIntervalTime(time: string, intervalInMins: number, operation: 'add' | 'subtract') {
   const parsedTime = dayjs(time, 'HH:mm')
@@ -67,6 +73,21 @@ function getDay(date: string) {
 function changeDay(newSelectedDate: string | number) {
   selectedDate.value = newSelectedDate as SessionDate
 }
+
+function toggleBookmark(session: Session) {
+  if (bookmarkedSessions.value.has(session.id)) {
+    bookmarkedSessions.value.delete(session.id)
+  }
+  else {
+    bookmarkedSessions.value.set(session.id, session)
+  }
+
+  localStorage.setItem(BOOKMARKED_SESSIONS_STORAGE_KEY, JSON.stringify([...bookmarkedSessions.value.entries()]))
+}
+
+function isSessionBookmarked(sessionId: string) {
+  return bookmarkedSessions.value.has(sessionId)
+}
 </script>
 
 <template>
@@ -90,7 +111,7 @@ function changeDay(newSelectedDate: string | number) {
       class="grid gap-x-2 gap-y-1 max-h-[calc(100svh-48px)] px-1 pb-2 m-0 overflow-auto"
       :style="{
         gridTemplateRows: `auto repeat(${timeintervals.at(-1)!.diff(timeintervals[0], 'minute')}, auto)`,
-        gridTemplateColumns: `auto repeat(${rooms.length}, 1fr)`,
+        gridTemplateColumns: `auto repeat(${ROOMS.length}, 1fr)`,
       }"
       tabindex="-1"
     >
@@ -99,7 +120,7 @@ function changeDay(newSelectedDate: string | number) {
         aria-hidden="true"
       ></div>
       <p
-        v-for="(room, index) in rooms"
+        v-for="(room, index) in ROOMS"
         :key="room"
         class="sticky top-0 row-start-1 row-end-2 mb-5 p-2 uppercase text-md text-center text-blue-800 rounded-sm z-[3]"
         :style="{
@@ -124,13 +145,14 @@ function changeDay(newSelectedDate: string | number) {
       <AgendaSession
         v-for="session in selectedDateSessions"
         :key="session.id"
+        :data-state="isSessionBookmarked(session.id) ? 'bookmarked' : 'not-bookmarked'"
         :href="`/session/${session.id}`"
-        :class="cn(buttonVariants({ variant: 'outline' }), 'h-auto flex flex-col justify-start items-start gap-1 p-3 rounded-lg hover:shadow-lg hover:bg-gray-50 focus-visible:shadow-lg motion-safe:transition')"
+        :class="cn(buttonVariants({ variant: 'outline' }), 'h-auto flex flex-col justify-start items-start gap-1 p-3 data-[state=bookmarked]:outline-dashed data-[state=bookmarked]:outline-4 data-[state=bookmarked]:-outline-offset-4 data-[state=bookmarked]:outline-green-700 rounded-lg hover:shadow-lg hover:bg-gray-50 focus-visible:shadow-lg motion-safe:transition')"
         :style="{
           gridRowStart: getGridRow(session.time.start),
           gridRowEnd: getGridRow(session.time.end),
-          gridColumnStart: session.room ? rooms.indexOf(session.room) + 2 : 2,
-          gridColumnEnd: session.room ? rooms.indexOf(session.room) + 3 : -1,
+          gridColumnStart: session.room ? ROOMS.indexOf(session.room) + 2 : 2,
+          gridColumnEnd: session.room ? ROOMS.indexOf(session.room) + 3 : -1,
         }"
       >
         <AgendaSessionMeta
@@ -160,8 +182,11 @@ function changeDay(newSelectedDate: string | number) {
             </AgendaSessionSpeakerName>
           </AgendaSessionSpeaker>
         </AgendaSessionSpeakers>
-        <AgendaSessionBookmarkButton class="mt-2 outline outline-1 outline-gray-200 hover:text-white hover:bg-black focus-visible:text-white focus-visible:bg-black">
-          Bookmark
+        <AgendaSessionBookmarkButton
+          :class="cn('mt-2 outline outline-1 outline-gray-200 hover:text-white hover:bg-black focus-visible:text-white focus-visible:bg-black', isSessionBookmarked(session.id) && 'text-white bg-green-800')"
+          @click.prevent="toggleBookmark(session)"
+        >
+          {{ isSessionBookmarked(session.id) ? 'Bookmarked' : 'Bookmark' }}
         </AgendaSessionBookmarkButton>
       </AgendaSession>
     </TabsContent>
