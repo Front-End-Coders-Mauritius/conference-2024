@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const props = defineProps({
+defineProps({
   href: {
     required: true,
     type: String,
@@ -8,7 +8,10 @@ const props = defineProps({
 </script>
 
 <template>
-  <a :href="href" tabindex="0">
+  <NuxtLink
+    :href="href"
+    tabindex="0"
+  >
     <slot></slot>
-  </a>
+  </NuxtLink>
 </template>

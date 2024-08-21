@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
+import { useElementSize } from '@vueuse/core'
 import {
   Tabs,
   TabsContent,
@@ -24,6 +25,8 @@ const dayjs = useDayjs()
 dayjs.extend(customParseFormat)
 dayjs.extend(isSameOrBefore)
 
+const roomsContainerRef = ref(null)
+const { width: roomsContainerWidth } = useElementSize(roomsContainerRef)
 const sessionsByDate = ref(SESSIONS_BY_DATE)
 const selectedDate = ref(Object.keys(sessionsByDate.value)[0] as SessionDate)
 const bookmarkedSessions = ref(new Map<string, Session>())
@@ -111,11 +114,12 @@ function isSessionBookmarked(sessionId: string) {
       class="grid gap-x-2 gap-y-1 max-h-[calc(100svh-48px)] px-1 pb-2 m-0 overflow-auto"
       :style="{
         gridTemplateRows: `auto repeat(${timeintervals.at(-1)!.diff(timeintervals[0], 'minute')}, auto)`,
-        gridTemplateColumns: `auto repeat(${ROOMS.length}, 1fr)`,
+        gridTemplateColumns: `auto repeat(${ROOMS.length}, minmax(16rem,1fr))`,
       }"
       tabindex="-1"
     >
       <div
+        ref="roomsContainerRef"
         class="sticky top-0 row-start-1 row-end-2 col-start-1 -col-end-1 mb-5 bg-white rounded-md shadow-lg z-[3]"
         aria-hidden="true"
       ></div>
@@ -133,20 +137,29 @@ function isSessionBookmarked(sessionId: string) {
       <AgendaTimeInterval
         v-for="(interval, index) in timeintervals"
         :key="interval.format('HH:mm')"
-        class="sticky left-0.5 col-start-1 col-end-2 -mt-[0.9rem] h-6 px-1 py-0.5 font-mono rounded-sm bg-yellow-300 z-[2] before:absolute before:h-[2px] before:top-1/2 before:-translate-y-1/2 before:w-[calc(var(--agenda-width)-1rem)] before:bg-yellow-300/25 before:-z-[1] isolate"
+        class="sticky left-0.5 col-start-1 col-end-2 -mt-[0.9rem] h-6 px-1 py-0.5 font-mono rounded-sm bg-yellow-300 z-[2]"
         :style="{
           gridRowStart: (index * intervalInMins) + 2,
           gridRowEnd: (index * intervalInMins) + 3,
         }"
       >
         {{ interval.format('HH:mm') }}
+        <AgendaTimeIntervalLine
+          class="absolute [--height:2px] h-[--height] left-100% top-1/2 -translate-y-1/2 bg-yellow-300/50"
+          :style="{ width: `calc(${roomsContainerWidth}px - 100%)` }"
+        />
       </AgendaTimeInterval>
       <AgendaSession
         v-for="session in selectedDateSessions"
         :key="session.id"
         :data-state="isSessionBookmarked(session.id) ? 'bookmarked' : 'not-bookmarked'"
         :href="`/session/${session.id}`"
-        :class="cn(buttonVariants({ variant: 'outline' }), 'h-auto flex flex-col justify-start items-start gap-1 p-3 data-[state=bookmarked]:outline-dashed data-[state=bookmarked]:outline-4 data-[state=bookmarked]:-outline-offset-4 data-[state=bookmarked]:outline-green-700 rounded-lg hover:shadow-lg hover:bg-gray-50 focus-visible:shadow-lg motion-safe:transition')"
+        :link-class="cn(
+          buttonVariants({ variant: 'outline' }),
+          'h-auto p-0 rounded-lg hover:bg-gray-50 hover:shadow-lg focus-visible:bg-gray-50 focus-visible:shadow-lg motion-safe:transition',
+          isSessionBookmarked(session.id) && 'outline-dashed outline-4 -outline-offset-4 outline-green-700',
+        )"
+        class="relative h-auto flex flex-col justify-start items-start gap-1 p-3 text-sm rounded-lg"
         :style="{
           gridRowStart: getGridRow(session.time.start),
           gridRowEnd: getGridRow(session.time.end),
@@ -183,7 +196,10 @@ function isSessionBookmarked(sessionId: string) {
           </AgendaSessionSpeaker>
         </AgendaSessionSpeakers>
         <AgendaSessionBookmarkButton
-          :class="cn('mt-2 outline outline-1 outline-gray-200 hover:text-white hover:bg-black focus-visible:text-white focus-visible:bg-black', isSessionBookmarked(session.id) && 'text-white bg-green-800')"
+          :class="cn(
+            isSessionBookmarked(session.id) && 'text-white bg-green-800',
+            'mt-2 outline outline-1 outline-gray-200 hover:text-white hover:bg-black focus-visible:text-white focus-visible:bg-black z-[1]',
+          )"
           @click.prevent="toggleBookmark(session)"
         >
           {{ isSessionBookmarked(session.id) ? 'Bookmarked' : 'Bookmark' }}
