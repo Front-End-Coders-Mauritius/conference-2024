@@ -2,7 +2,7 @@
   <NuxtLayout>
     <Hero />
     <Speakers />
-    <Schedule />
+    <Schedule :interval-in-mins="30" />
     <Sponsors />
   </NuxtLayout>
 </template>

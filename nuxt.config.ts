@@ -26,6 +26,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     'shadcn-nuxt',
     '@nuxt/eslint',
+    'dayjs-nuxt',
   ],
   shadcn: {
     /**

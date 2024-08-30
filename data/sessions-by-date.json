@@ -1,0 +1,90 @@
+{
+  "_PLEASE_READ_THIS": "SESSIONS SHOULD BE IN ASCENDING ORDER OF THEIR START TIME",
+  "2024-09-03": [
+    {
+      "id": "a1",
+      "title": "Welcome to everyone",
+      "description": "Dummy description",
+      "time": {
+        "start": "09:30",
+        "end": "10:00"
+      },
+      "speakers": [
+        {
+          "id": "s1",
+          "name": "Paul Smith",
+          "avatar": "https://i.pravatar.cc/32"
+        },
+        {
+          "id": "s2",
+          "name": "Mary Twist",
+          "avatar": "https://i.pravatar.cc/32"
+        }
+      ],
+      "room": "room1"
+    }
+  ],
+  "2024-09-04": [
+    {
+      "id": "b1",
+      "title": "Google Developer Q&A",
+      "description": "Dummy description",
+      "time": {
+        "start": "10:10",
+        "end": "10:45"
+      },
+      "speakers": [
+        {
+          "id": "s1",
+          "name": "Benny Smith",
+          "avatar": "https://i.pravatar.cc/32"
+        }
+      ],
+      "room": "room1"
+    },
+    {
+      "id": "bz",
+      "title": "iOS Developer Q&A",
+      "description": "Dummy description",
+      "time": {
+        "start": "10:10",
+        "end": "10:30"
+      },
+      "speakers": [],
+      "room": "room2"
+    },
+    {
+      "id": "b2",
+      "title": "Amazon Web Services",
+      "description": "Dummy description",
+      "time": {
+        "start": "10:45",
+        "end": "11:00"
+      },
+      "speakers": [],
+      "room": "room1"
+    },
+    {
+      "id": "b3",
+      "title": "Intro to Vue.js",
+      "description": "Dummy description",
+      "time": {
+        "start": "11:00",
+        "end": "11:42"
+      },
+      "speakers": [],
+      "room": "room2"
+    },
+    {
+      "id": "b4",
+      "title": "Intro to React.js",
+      "description": "Dummy description",
+      "time": {
+        "start": "11:45",
+        "end": "13:00"
+      },
+      "speakers": [],
+      "room": "room2"
+    }
+  ]
+}
